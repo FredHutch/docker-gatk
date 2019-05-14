@@ -1,6 +1,11 @@
 # Using OpenJDK 8
 FROM broadinstitute/gatk:gatkbase-2.0.3
 
+# Install ant, git for building
+RUN apt-get update && \
+    apt-get --no-install-recommends install -y --force-yes \
+    git
+
 # Get the GitHub repository
 WORKDIR /
 RUN git clone https://github.com/broadinstitute/gatk.git
