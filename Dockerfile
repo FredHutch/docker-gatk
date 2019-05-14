@@ -15,6 +15,12 @@ WORKDIR /gatk
 RUN git fetch --all --tags && \
     git checkout tags/4.1.2.0
 
+RUN ./gradlew clean collectBundleIntoDir shadowTestClassJar shadowTestJar -Drelease=4.1.2.0 && \
+    ZIPPATHGATK=$( find ./build -name "*bundle-files-collected" ) && \
+    mv ${ZIPPATHGATK} ./unzippedJar && \
+    ZIPPATHPYTHON=$( find ./unzippedJar -name "gatkPython*.zip" ) && \
+    unzip -o -j ${ZIPPATHPYTHON} -d ./unzippedJar/scripts
+
 #Setup linked jars that may be needed for running gatk
 RUN find /gatk -name "gatk*local.jar"
 RUN find /gatk -name "gatk*spark.jar"
