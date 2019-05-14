@@ -6,8 +6,8 @@ RUN apt-get install software-properties-common && \
     add-apt-repository ppa:git-core/ppa && \
     apt-get update && \
     apt-get --no-install-recommends install -y --force-yes \
-    git git-lfs && \
-    git lfs install
+    git && \
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash 
 
 # Get the GitHub repository
 WORKDIR /
