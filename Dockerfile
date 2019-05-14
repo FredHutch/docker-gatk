@@ -17,7 +17,7 @@ RUN git clone https://github.com/broadinstitute/gatk.git
 # Get a specific release of GATK
 WORKDIR /gatk
 RUN git fetch --all --tags && \
-    git checkout tags/4.1.2.0
+    git checkout tags/4.1.1.0
 
 RUN ./gradlew
 
