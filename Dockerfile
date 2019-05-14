@@ -2,9 +2,12 @@
 FROM broadinstitute/gatk:gatkbase-2.0.3
 
 # Install ant, git for building
-RUN apt-get update && \
+RUN sudo apt-get install software-properties-common && \
+    sudo add-apt-repository ppa:git-core/ppa && \
+    apt-get update && \
     apt-get --no-install-recommends install -y --force-yes \
-    git
+    git git-lfs && \
+    git lfs install
 
 # Get the GitHub repository
 WORKDIR /
