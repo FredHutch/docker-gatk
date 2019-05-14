@@ -7,7 +7,8 @@ RUN apt-get install software-properties-common && \
     apt-get update && \
     apt-get --no-install-recommends install -y --force-yes \
     git && \
-    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash 
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    apt-get install git-lfs
 
 # Get the GitHub repository
 WORKDIR /
