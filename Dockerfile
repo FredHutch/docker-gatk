@@ -2,8 +2,8 @@
 FROM broadinstitute/gatk:gatkbase-2.0.3
 
 # Install ant, git for building
-RUN sudo apt-get install software-properties-common && \
-    sudo add-apt-repository ppa:git-core/ppa && \
+RUN apt-get install software-properties-common && \
+    add-apt-repository ppa:git-core/ppa && \
     apt-get update && \
     apt-get --no-install-recommends install -y --force-yes \
     git git-lfs && \
